@@ -8,19 +8,19 @@ def home():
     return render_template("home.html")
 
 @app.route("/projects")
-def home():
+def projects():
     return render_template("projects.html")
 
 @app.route("/skills")
-def home():
+def skills():
     return render_template("skills.html")
 
 @app.route("/about")
-def home():
+def about():
     return render_template("about.html")
 
 @app.route("/contacts")
-def home():
+def contacts():
     return render_template("contacts.html")
 
 if __name__ == "__main__":
