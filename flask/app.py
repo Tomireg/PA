@@ -19,9 +19,9 @@ def skills():
 def about():
     return render_template("about.html")
 
-@app.route("/contacts")
-def contacts():
-    return render_template("contacts.html")
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
