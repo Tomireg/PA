@@ -1,0 +1,46 @@
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav li {
+    display: inline-block;
+}
+
+a:link {
+    color: steelblue;
+}
+
+a:visited {
+    color: steelblue;
+}
+
+.nav-item {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: .5em 1em;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.nav-item-dark {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    padding: .5em 1em;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.nav-container {
+    background-color: slategrey;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-evenly;
+}
