@@ -3,26 +3,38 @@
 
 {% block bodycontent %}
 <h1>My Works</h1>
-<a href="https://tomireg.github.io/WDA/">Website about the sport Buhurt</a>
-<a href="https://tomireg.github.io/JSA/">Website about Martial Arts</a>
-<div class="form" id="form">
-    <h2>Register</h2>
-    <form action="/action_page.php" method="get">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email"><br><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password"><br><br>
-        <label for="checkbox">Show</label>
-        <input type="checkbox" id="checkbox" name="password"><br><br>
-        <label for="">Strength of password (Minimum 6 characters. Must contain minimum 1 uppercase, 1
-            lowercase characters and 1 numeric digit.)</label>
-        <div class="power-container">
-            <div id="power-point"></div>
-        </div>
-        <input type="submit" value="Submit">
-    </form>
-    <div id="result"></div>
+<div class="grid-container">
+    <div class="img1">
+        <img src="{{url_for('static', filename='buhurt.jpg')}}"/>
+    </div>
+    <div class="img2">
+        <img src="{{url_for('static', filename='martialarts.jpg')}}"/>
+    </div>
+    <div class="link1">
+    <a href="https://tomireg.github.io/WDA/">Website about the sport Buhurt</a>
+    </div>
+    <div class="link2">
+    <a href="https://tomireg.github.io/JSA/">Website about Martial Arts</a>
+    </div>
+    <div class="form" id="form">
+        <h2>Register</h2>
+        <form action="/action_page.php" method="get">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br><br>
+            <label for="checkbox">Show</label>
+            <input type="checkbox" id="checkbox" name="password"><br><br>
+            <label for="">Strength of password (Minimum 6 characters. Must contain minimum 1 uppercase, 1
+                lowercase characters and 1 numeric digit.)</label>
+            <div class="power-container">
+                <div id="power-point"></div>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+        <div id="result"></div>
+    </div>
 </div>
 {% endblock %}
