@@ -19,11 +19,13 @@
                 </li>
                 <li class="nav-item"><a href="https://pa-3so9.onrender.com/contact">Contact</a>
                 </li>
+                <li class="nav-item"><button class="mybtn" id="mybtn">Dark Mode</button></li>
             </ul>
         </nav>
     </header>
     {% block bodycontent %}
     {% endblock %}
 </body>
+<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
 
 </html>

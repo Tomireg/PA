@@ -30,7 +30,7 @@ a:visited {
 }
 
 .nav-item-dark {
-    background-color: black;
+    background-color: slategrey;
     color: white;
     border: 1px solid white;
     padding: .5em 1em;
@@ -43,4 +43,37 @@ a:visited {
     border: 1px solid black;
     display: flex;
     justify-content: space-evenly;
+}
+
+.nav-container-dark {
+    background-color: steelblue;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.body {
+    background-color: white;
+    color: black;
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+.mybtn {
+    border: none;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: white;
+    color: black;
+}
+
+.dmbtn {
+    border: none;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: black;
+    color: white;
 }
