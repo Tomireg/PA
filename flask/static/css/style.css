@@ -12,8 +12,8 @@
 
 .img1 {
     grid-area: img1;
-    width: 100%;
-    height: auto;
+    width: 500px;
+    height: 500px;
     padding-left: 5%;
     padding-right: 5%;
 }
@@ -21,26 +21,20 @@
 .img2 {
     grid-area: img2;
     justify-self: right;
-    width: 100%;
-    height: auto;
+    width: 500px;
+    height: 500px;
     padding-left: 5%;
     padding-right: 5%;
 }
 
 .link1 {
     grid-area: link1;
-    width: 100%;
-    height: auto;
-    padding-left: 5%;
-    padding-right: 5%;
+    text-align: center;
 }
 
 .link2 {
     grid-area: link2;
-    width: 100%;
-    height: auto;
-    padding-left: 5%;
-    padding-right: 5%;
+    text-align: center;
 }
 
 .form {
