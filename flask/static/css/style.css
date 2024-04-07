@@ -3,10 +3,29 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 0.5fr 1fr;
+    grid-template-rows: 0.75fr 0.25fr 0.25fr 0.75fr 1fr;
     grid-template-areas:
-        "link1 link1 link2 link2"
+        ". img1 img1 ."
+        ". link1 link1 ." 
+        ". link2 link2 ."
+        ". img2 img2 ."
         ". form form .";
+}
+
+.img1 {
+    grid-area: img1;
+    width: 100%;
+    height: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.img2 {
+    grid-area: img2;
+    width: 100%;
+    height: auto;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .link1 {
