@@ -8,6 +8,10 @@
         ". form form .";
 }
 
+.link1 {
+    text-align: center;
+}
+
 .form {
     grid-area: form;
 }
