@@ -41,7 +41,18 @@ a:visited {
 .body {
     background-color: white;
     color: black;
-    justify-content: center;
+}
+
+h1 {
+    justify-self: center;
+}
+
+p {
+    justify-self: center;
+}
+
+ul {
+    justify-self: center;
 }
 
 .footer-container {
