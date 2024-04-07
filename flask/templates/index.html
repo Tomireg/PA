@@ -15,16 +15,16 @@
                 <li class="nav-item"><a href="https://pa-3so9.onrender.com/home">Home</a></li>
                 <li class="nav-item"><a href="https://pa-3so9.onrender.com/projects">Projects</a></li>
                 <li class="nav-item"><a href="https://pa-3so9.onrender.com/skills">Skills</a></li>
-                <li class="nav-item"><a href="https://pa-3so9.onrender.com/about">About</a>
-                </li>
-                <li class="nav-item"><a href="https://pa-3so9.onrender.com/contact">Contact</a>
-                </li>
-                <li class="nav-item"><button class="mybtn" id="mybtn">Dark Mode</button></li>
+                <li class="nav-item"><a href="https://pa-3so9.onrender.com/about">About</a></li>
+                <li class="nav-item"><a href="https://pa-3so9.onrender.com/contact">Contact</a></li>
             </ul>
         </nav>
     </header>
     {% block bodycontent %}
     {% endblock %}
+    <div class="footer-container">
+        <footer> &copy; Tamas Regeczy 2023 <a href="mailto: tomregeczy@gmail.com">Send Email</a></footer>
+    </div>
 </body>
 <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
 
