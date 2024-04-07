@@ -66,7 +66,7 @@ a:visited {
     border: none;
     font-size: 2rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: white;
+    background-color: steelblue;
     color: black;
 }
 
@@ -74,6 +74,6 @@ a:visited {
     border: none;
     font-size: 2rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: black;
+    background-color: slategrey;
     color: white;
 }
