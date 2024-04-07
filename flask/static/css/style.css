@@ -12,17 +12,16 @@
 
 .img1 {
     grid-area: img1;
-    width: 500px;
-    height: 500px;
+    width: 250px;
+    height: 250px;
     padding-left: 5%;
     padding-right: 5%;
 }
 
 .img2 {
     grid-area: img2;
-    justify-self: right;
-    width: 500px;
-    height: 500px;
+    width: 250px;
+    height: 250px;
     padding-left: 5%;
     padding-right: 5%;
 }
