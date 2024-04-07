@@ -28,12 +28,10 @@
 
 .link1 {
     grid-area: link1;
-    text-align: center;
 }
 
 .link2 {
     grid-area: link2;
-    text-align: center;
 }
 
 .form {
