@@ -41,20 +41,20 @@ a:visited {
 .body {
     background-color: white;
     color: black;
-    text-align: center;
 }
 
 h1 {
-    justify-self: center;
+    text-align: center;
 }
 
 p {
-    justify-self: center;
+    text-align: center;
 }
 
 ul {
-    justify-self: center;
+    text-align: center;
 }
+
 
 .footer-container {
     padding: 10;
