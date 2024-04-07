@@ -3,19 +3,11 @@
 
 {% block bodycontent %}
 <h1>My Works</h1>
+<ul>
+    <li><a href="https://tomireg.github.io/WDA/">Website about the sport Buhurt</a></li>
+    <li><a href="https://tomireg.github.io/JSA/">Website about Martial Arts</a></li>
+</ul>
 <div class="grid-container">
-    <div class="img1">
-        <img src="{{url_for('static', filename='buhurt.jpg')}}"/>
-    </div>
-    <div class="img2">
-        <img src="{{url_for('static', filename='martialarts.jpg')}}"/>
-    </div>
-    <div class="link1">
-    <a href="https://tomireg.github.io/WDA/">Website about the sport Buhurt</a>
-    </div>
-    <div class="link2">
-    <a href="https://tomireg.github.io/JSA/">Website about Martial Arts</a>
-    </div>
     <div class="form" id="form">
         <h2>Register</h2>
         <form action="/action_page.php" method="get">
