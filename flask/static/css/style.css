@@ -68,18 +68,21 @@ a:visited {
 
 h1 {
     text-align: center;
-    size: 4rem;
+    font-size: 4rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 p {
     text-align: center;
-    size: 2rem;
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 ul {
     text-align: center;
     list-style: none;
-    size: 2rem;
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 
