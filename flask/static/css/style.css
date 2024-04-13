@@ -3,9 +3,18 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 2fr 1fr;
     grid-template-areas:
+        "art1 art1 art2 art2"
         ". form form .";
+}
+
+.art1 {
+    grid-area: art1;
+}
+
+.art2 {
+    grid-area: art2;
 }
 
 .form {
