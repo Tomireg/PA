@@ -48,7 +48,8 @@ a:visited {
     color: black;
     border: 1px solid slategrey;
     border-radius: 50px;
-    padding: .5em 1em;
+    padding: 5px;
+    margin: 10px;
     font-size: 2rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
