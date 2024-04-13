@@ -62,21 +62,24 @@ a:visited {
 
 
 .body {
-    background-color: white;
-    color: black;
+    background-color: indigo;
+    color: orangered;
 }
 
 h1 {
     text-align: center;
+    size: 4rem;
 }
 
 p {
     text-align: center;
+    size: 2rem;
 }
 
 ul {
     text-align: center;
     list-style: none;
+    size: 2rem;
 }
 
 
