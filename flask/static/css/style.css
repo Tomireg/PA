@@ -70,6 +70,7 @@ body {
 }
 
 h1 {
+    color: #004680;
     text-align: center;
     font-size: 4rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -91,7 +92,7 @@ ul {
 
 .footer-container {
     padding: 10;
-    border: 1px solid black;
+    border: 1px solid slategrey;
     display: flex;
     justify-content: center;
     background-color: steelblue;
