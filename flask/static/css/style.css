@@ -166,4 +166,6 @@ label {
 
 .logo {
     text-align: center;
+    width: 100%;
+    height: auto;
 }
