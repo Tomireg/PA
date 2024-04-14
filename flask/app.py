@@ -23,10 +23,6 @@ def about():
 def contact():
     return render_template("contact.html")
 
-@app.route("/")
-def home():
-    return render_template("index.html")
-
 @app.route("/login", methods=["POST", "GET"])
 def login():
     if request.method == "POST":
