@@ -1,5 +1,6 @@
 URL on github: https://tomireg.github.io/PA/
 URL on render: https://pa-3so9.onrender.com
+Use the url provided by render to access the site
 
 The python version is set as an environment on render for deployment
 PYTHON_VERSION 3.12.2
