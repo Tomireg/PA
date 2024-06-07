@@ -11,3 +11,7 @@ The root directory is set to flask when deploying
 
 
 The website is a portfolio. There is a login page with two forms. The first form is handling post and get requests and displays the submitted name on a new page. The second form is validated by javascript.
+
+Sources:
+https://favicon.io/
+https://www.techwithtim.net/tutorials/flask/http-methods-get-post
