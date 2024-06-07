@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block titlecontent %}
     {% endblock %}
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/icon/favicon.ico') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
@@ -14,16 +14,16 @@
     <header>
         <nav>
             <ul class="nav-container">
-                <li class="nav-item"><a href="https://pa-3so9.onrender.com/home">Home</a></li>
-                <li class="nav-item"><a href="https://pa-3so9.onrender.com/projects">Projects</a></li>
-                <li class="nav-item"><a href="https://pa-3so9.onrender.com/skills">Skills</a></li>
-                <li class="nav-item"><a href="https://pa-3so9.onrender.com/about">About</a></li>
-                <li class="nav-item"><a href="https://pa-3so9.onrender.com/contact">Contact</a></li>
-                <li class="nav-item"><a href="https://pa-3so9.onrender.com/login">Login</a></li>
+                <li class="nav-item"><a href="/home">Home</a></li>
+                <li class="nav-item"><a href="/projects">Projects</a></li>
+                <li class="nav-item"><a href="/skills">Skills</a></li>
+                <li class="nav-item"><a href="/about">About</a></li>
+                <li class="nav-item"><a href="/contact">Contact</a></li>
+                <li class="nav-item"><a href="/login">Login</a></li>
             </ul>
         </nav>
         <div class="logo">
-            <img src="{{url_for('static', filename='logo.png')}}" />
+            <img src="{{url_for('static', filename='images/logo.png')}}" />
         </div>
     </header>
     {% block bodycontent %}
