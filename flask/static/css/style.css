@@ -50,10 +50,12 @@ a:visited {
 }
 
 .nav-item-dark {
-    background-color: black;
-    color: white;
-    border: 1px solid white;
-    padding: .5em 1em;
+    background-color: slategrey;
+    color: black;
+    border: 1px solid steelblue;
+    border-radius: 50px;
+    padding: 20px;
+    margin: 10px;
     font-size: 2rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -72,15 +74,18 @@ body {
 }
 
 .dark-mode {
-    background-color: black;
-    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: tomato;
+    color: indigo;
 }
 
 .mybtn {
     border: none;
     font-size: 2rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: white;
+    background-color: steelblue;
     color: black;
 }
 
@@ -88,8 +93,8 @@ body {
     border: none;
     font-size: 2rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: black;
-    color: white;
+    background-color: slategrey;
+    color: black;
 }
 
 h1 {
