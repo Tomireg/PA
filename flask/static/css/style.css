@@ -8,26 +8,12 @@
         "art1 art1 art2 art2";
 }
 
-.gc {
-    align-items: center;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas:
-        ". form form .";
-}
-
 .art1 {
     grid-area: art1;
 }
 
 .art2 {
     grid-area: art2;
-}
-
-.form {
-    grid-area: form;
 }
 
 nav ul {
@@ -63,12 +49,19 @@ a:visited {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.nav-item-dark {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    padding: .5em 1em;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
 .nav-container {
     display: flex;
     justify-content: space-evenly;
 }
-
 
 body {
     min-height: 100vh;
@@ -76,6 +69,27 @@ body {
     flex-direction: column;
     background-color: #2D9596;
     color: indigo;
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+.mybtn {
+    border: none;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: white;
+    color: black;
+}
+
+.dmbtn {
+    border: none;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: black;
+    color: white;
 }
 
 h1 {
