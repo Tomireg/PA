@@ -25,13 +25,13 @@ def contact():
     return render_template("contact.html")
 
 @app.route("/game")
-def login():
+def game():
         return render_template("game.html")
 
 @app.route("/run_snake")
 def run_snake():
      subprocess.Popen(["python3", "snake.py"])
-     return redirect(url_for("/game"))
+     return redirect(url_for("game"))
      
 
 if __name__ == "__main__":
