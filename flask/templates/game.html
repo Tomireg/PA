@@ -6,5 +6,8 @@
 
 
 {% block bodycontent %}
-<h1>Snake to run from here</h1>
+<h1>Click to play Snake</h1>
+<form action="{{ url_for('run_snake') }}" method="get">
+    <button type="submit">Play Snake</button>
+</form>
 {% endblock %}
