@@ -30,7 +30,7 @@ def login():
 
 @app.route("/run_snake")
 def run_snake():
-     subprocess.run(["python3", snake.py])
+     subprocess.Popen(["python3", "snake.py"])
      return redirect(url_for("game"))
      
 
