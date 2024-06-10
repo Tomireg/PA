@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for
 import subprocess
 
 app = Flask(__name__, static_url_path='/static')
@@ -26,13 +26,12 @@ def contact():
 
 @app.route("/game")
 def game():
-        return render_template("game.html")
+    return render_template("game.html")
 
 @app.route("/run_snake")
 def run_snake():
-     subprocess.Popen(["python3", "snake.py"])
-     return redirect(url_for("game"))
-     
+    subprocess.Popen(["python3", "snake.py"])
+    return redirect(url_for("game"))
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)

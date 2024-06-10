@@ -7,7 +7,7 @@
 
 {% block bodycontent %}
 <h1>Click to play Snake</h1>
-<form action="{{ url_for('run_snake') }}" method="get">
-    <button type="submit">Play Snake</button>
-</form>
+<h1>Snake Game</h1>
+    <p>The game is running in a separate window.</p>
+    <p>Click <a href="{{ url_for('run_snake') }}">here</a> to start the game.</p>
 {% endblock %}
