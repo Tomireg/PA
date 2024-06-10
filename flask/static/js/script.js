@@ -1,55 +1,19 @@
 document.addEventListener("DOMContentLoaded", init);
+
 function init() {
-  let darkModeStore = localStorage.getItem('dark-mode');
-
-  if (darkModeStore === null) {
-    localStorage.setItem("dark-mode", false);
-  }
-  if (darkModeStore === "true") {
-    setDarkMode();
-  } else {
-    ;
-  }
-
-  let myButton = document.getElementById("mybtn");
-  myButton.addEventListener("click", clickedDarkMode);
+  let savedTheme = localStorage.getItem('selected-theme') || 'theme1';
+  setTheme(savedTheme);
+  
+  let themePicker = document.getElementById("theme-picker");
+  themePicker.value = savedTheme;
+  themePicker.addEventListener("change", function() {
+    let selectedTheme = themePicker.value;
+    setTheme(selectedTheme);
+    localStorage.setItem('selected-theme', selectedTheme);
+  });
 }
 
-function clickedDarkMode() {
-    toggleDarkMode();
-    setDarkMode();
-  }
-  
-  function setDarkMode() {
-    styleBody();
-    styleNav();
-    styleBtn();
-  }
-  
-  function styleBody() {
-    let element = document.body;
-    element.classList.toggle("dark-mode");
-  }
-  
-  function styleNav() {
-    let allButtons = document.getElementsByClassName("nav-item");
-    for (let i = 0; i < allButtons.length; i++) {
-      let button = allButtons[i];
-  
-      button.classList.toggle("nav-item-dark");
-    }
-  }
-  
-  function styleBtn() {
-    let dmBtn = document.getElementById("mybtn");
-    dmBtn.classList.toggle("dmbtn");
-  }
-  
-  function toggleDarkMode() {
-    if (localStorage.getItem("dark-mode") === "true") {
-      localStorage.setItem("dark-mode", false);
-  
-    } else {
-      localStorage.setItem("dark-mode", true);
-    }
-  }
+function setTheme(theme) {
+  let themeStylesheet = document.getElementById("theme-stylesheet");
+  themeStylesheet.href = `{{ url_for('static', filename='css/${theme}.css') }}`;
+}
