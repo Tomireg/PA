@@ -1,4 +1,4 @@
-document.addEdocument.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", init);
 
 function init() {
     // Dark mode initialization
@@ -109,4 +109,3 @@ function handleKeydown(event) {
         });
     }
 }
-

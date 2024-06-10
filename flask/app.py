@@ -1,7 +1,15 @@
-from flask import Flask, render_template, jsonify, request
-from snake import game
+from flask import Flask, render_template, request, jsonify
 
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__)
+
+# Initial game state
+game_state = {
+    'snake_body': [[100, 50], [90, 50], [80, 50], [70, 50]],
+    'fruit_position': [150, 150],
+    'direction': 'RIGHT',
+    'score': 0,
+    'status': 'running'
+}
 
 @app.route("/")
 @app.route("/home")
@@ -25,19 +33,17 @@ def contact():
     return render_template("contact.html")
 
 @app.route("/game")
-def game_view():
+def game():
     return render_template("game.html")
 
 @app.route("/game_state", methods=['GET', 'POST'])
-def game_state():
+def game_state_route():
+    global game_state
     if request.method == 'POST':
-        direction = request.json.get('direction')
-        if direction:
-            game.update_direction(direction)
-        running = game.update()
-        if not running:
-            return jsonify({"status": "game_over"})
-    return jsonify(game.get_state())
+        data = request.json
+        if 'direction' in data:
+            game_state['direction'] = data['direction']
+    return jsonify(game_state)
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
