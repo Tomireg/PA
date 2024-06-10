@@ -1,5 +1,5 @@
-from flask import Flask, render_template, redirect, url_for
-import subprocess
+from flask import Flask, render_template, jsonify, request
+from snake import game
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -25,13 +25,19 @@ def contact():
     return render_template("contact.html")
 
 @app.route("/game")
-def game():
+def game_view():
     return render_template("game.html")
 
-@app.route("/run_snake")
-def run_snake():
-    subprocess.Popen(["python3", "snake.py"])
-    return redirect(url_for("game"))
+@app.route("/game_state", methods=['GET', 'POST'])
+def game_state():
+    if request.method == 'POST':
+        direction = request.json.get('direction')
+        if direction:
+            game.update_direction(direction)
+        running = game.update()
+        if not running:
+            return jsonify({"status": "game_over"})
+    return jsonify(game.get_state())
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)

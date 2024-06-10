@@ -6,8 +6,6 @@
 
 
 {% block bodycontent %}
-<h1>Click to play Snake</h1>
 <h1>Snake Game</h1>
-    <p>The game is running in a separate window.</p>
-    <p>Click <a href="{{ url_for('run_snake') }}">here</a> to start the game.</p>
+    <canvas id="gameCanvas" width="720" height="480"></canvas>
 {% endblock %}
