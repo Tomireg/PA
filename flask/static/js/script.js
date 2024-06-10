@@ -18,7 +18,7 @@ function init() {
     const canvas = document.getElementById('gameCanvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
-        gameLoop(ctx);
+        setInterval(() => gameLoop(ctx), 100); // Update every 100ms
         document.addEventListener('keydown', handleKeydown);
     }
 }
@@ -87,7 +87,6 @@ function gameLoop(ctx) {
                 return;
             }
             draw(ctx, state);
-            setTimeout(() => gameLoop(ctx), 100);
         });
 }
 
