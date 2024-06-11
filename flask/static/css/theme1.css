@@ -33,7 +33,7 @@ body {
     padding: 10px 20px;
 }
 
-a {
+.link {
     background-color: #004680;
     color: slategrey;
     text-decoration: none;
