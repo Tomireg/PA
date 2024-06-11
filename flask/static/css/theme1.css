@@ -44,6 +44,7 @@ body {
     margin-right: auto;
     height: auto;
     width: 100%;
+    max-width: 50px;
 }
 
 .footer-container {
