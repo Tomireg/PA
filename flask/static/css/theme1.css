@@ -49,6 +49,7 @@ body {
 }
 
 ul {
+    font-size: 2em;
     list-style-type: none;
     text-align: center;
     color: slategrey;
@@ -105,5 +106,12 @@ p {
         font-size: 1em;
         color: slategrey;
         text-align: center;
+    }
+
+    ul {
+        font-size: 1em;
+        list-style-type: none;
+        text-align: center;
+        color: slategrey;
     }
 }
