@@ -5,9 +5,5 @@
 {% endblock %}
 
 {% block bodycontent %}
-{% if result_type == 'smallest' %}
-    <h1>The smallest number is: {{ result }}</h1>
-{% elif result_type == 'largest' %}
-    <h1>The largest number is: {{ result }}</h1>
-{% endif %}
+<h1>The {{ result_type }} number is: {{ result }}</h1>
 {% endblock %}

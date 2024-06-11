@@ -44,14 +44,18 @@ def calculate():
 
         if submit_type == 'smallest':
             result = min(numbers)
+            result_type = 'smallest'
         elif submit_type == 'largest':
             result = max(numbers)
+            result_type = 'largest'
         else:
             result = None
+            result_type = None
 
-        return render_template("result.html", result=result)
+        # Render the result page with the result and result_type
+        return render_template("result.html", result=result, result_type=result_type)
     except ValueError:
         return "Invalid input. Please enter valid integers.", 400
-
+    
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
