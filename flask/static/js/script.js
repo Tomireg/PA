@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", init);
 function init() {
   let savedTheme = localStorage.getItem('selected-theme') || 'theme1';
   setTheme(savedTheme);
-  
+
   let themePicker = document.getElementById("theme-picker");
   themePicker.value = savedTheme;
   themePicker.addEventListener("change", function() {
@@ -15,5 +15,5 @@ function init() {
 
 function setTheme(theme) {
   let themeStylesheet = document.getElementById("theme-stylesheet");
-  themeStylesheet.href = `{{ url_for('static', filename='css/${theme}.css') }}`;
+  themeStylesheet.href = `/static/css/${theme}.css`;
 }
