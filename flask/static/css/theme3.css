@@ -1,3 +1,22 @@
+.grid-container {
+    align-items: center;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "art1 . . art2";
+
+}
+
+.art1 {
+    grid-area: art1;
+}
+
+.art2 {
+    grid-area: art2;
+}
+
 body {
     background-color: #fff4e6;
     color: #333;
@@ -6,6 +25,7 @@ body {
 }
 
 #main-nav {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: #ff6347;
     color: white;
     display: flex;
@@ -38,14 +58,59 @@ body {
 }
 
 h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 3em;
     color: #ff6347;
     text-align: center;
 }
 
+ul {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2em;
+    list-style-type: none;
+    text-align: center;
+    color: teal;
+}
+
+.link {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: teal;
+    text-decoration: none;
+}
+
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2em;
+    color: teal;
+    text-align: center;
+}
+
 @media (max-width: 800px) {
     #main-nav {
+        font-family: Georgia, 'Times New Roman', Times, serif;
         flex-direction: column;
         align-items: center;
+    }
+
+    h1 {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 2em;
+        color: teal;
+        text-align: center;
+    }
+
+    ul {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1em;
+        list-style-type: none;
+        text-align: center;
+        color: teal;
+    }
+
+    p {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1em;
+        color: teal;
+        text-align: center;
     }
 }

@@ -7,6 +7,7 @@ body {
 }
 
 #main-nav {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: #004680;
     color: white;
     display: flex;
@@ -36,6 +37,7 @@ body {
 }
 
 .link {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #004680;
     color: slategrey;
     text-decoration: none;
@@ -49,6 +51,7 @@ body {
 }
 
 ul {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 2em;
     list-style-type: none;
     text-align: center;
@@ -72,12 +75,14 @@ ul {
 }
 
 h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 4em;
     color: #004680;
     text-align: center;
 }
 
 p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 2em;
     color: slategrey;
     text-align: center;
@@ -85,6 +90,7 @@ p {
 
 @media (max-width: 800px) {
     #main-nav {
+        font-family: Georgia, 'Times New Roman', Times, serif;
         flex-direction: column;
         align-items: center;
     }
@@ -97,18 +103,21 @@ p {
     }
 
     h1 {
+        font-family: Georgia, 'Times New Roman', Times, serif;
         font-size: 2em;
         color: #004680;
         text-align: center;
     }
 
     p {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-size: 1em;
         color: slategrey;
         text-align: center;
     }
 
     ul {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-size: 1em;
         list-style-type: none;
         text-align: center;
