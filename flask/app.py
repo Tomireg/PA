@@ -51,6 +51,10 @@ def calculate():
         elif submit_type == 'sum':
             result = sum_of_digits(numbers)
             result_type = 'sum'
+        elif submit_type == 'order':
+            numbers.sort()
+            result = numbers
+            result_type = 'ordered'
         else:
             result = None
             result_type = None

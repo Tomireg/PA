@@ -29,10 +29,10 @@ function init() {
         }
     });
 
-    // Event listener for the new button (Calculate Sum of Digits)
-    document.getElementById('calculate-sum').addEventListener('click', function(event) {
-        // Call the setSubmitType function with the parameter 'sum'
-        setSubmitType('sum');
+    // Event listener for the new button (Order Numbers)
+    document.getElementById('order-numbers').addEventListener('click', function(event) {
+        // Call the setSubmitType function with the parameter 'order'
+        setSubmitType('order');
     });
 }
 
