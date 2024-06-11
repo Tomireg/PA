@@ -29,7 +29,8 @@ body {
     background-color: #ff6347;
     color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     padding: 15px;
     flex-wrap: wrap;
 }
@@ -38,7 +39,10 @@ body {
     color: white;
     text-decoration: none;
     padding: 10px;
-    margin: 0 5px;
+    border: 5px solid black;
+    border-radius: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .nav-item select {
@@ -47,7 +51,12 @@ body {
 }
 
 .logo img {
-    max-width: 110px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 100%;
+    max-width: 250px;
 }
 
 .footer-container {
