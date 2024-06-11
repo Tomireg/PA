@@ -17,7 +17,8 @@
     <input type="text" id="num4" name="num4"><br><br>
     <label for="num5">Number 5:</label>
     <input type="text" id="num5" name="num5"><br><br>
-    <button type="submit">Smallest</button>
-    <button type="submit">Bigest</button>
+    <input type="hidden" name="submit-type" id="submit-type" value="">
+    <button type="button" onclick="setSubmitType('smallest')">Smallest</button>
+    <button type="button" onclick="setSubmitType('largest')">Largest</button>
 </form>
 {% endblock %}
