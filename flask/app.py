@@ -31,7 +31,6 @@ def game():
 @app.route("/calculate", methods=['POST'])
 def calculate():
     try:
-        # Retrieve form data
         numbers = [
             int(request.form['num1']),
             int(request.form['num2']),
@@ -40,13 +39,18 @@ def calculate():
             int(request.form['num5'])
         ]
 
-        # Calculate the smallest number using numpy
-        smallest_number = np.min(numbers)
+        # Check which button was clicked
+        submit_type = request.form['submit-type']
 
-        # Render the result page with the smallest number
-        return render_template("result.html", smallest_number=smallest_number)
+        if submit_type == 'smallest':
+            result = min(numbers)
+        elif submit_type == 'largest':
+            result = max(numbers)
+        else:
+            result = None
+
+        return render_template("result.html", result=result)
     except ValueError:
-        # Handle the case where the input is not valid integers
         return "Invalid input. Please enter valid integers.", 400
 
 if __name__ == "__main__":

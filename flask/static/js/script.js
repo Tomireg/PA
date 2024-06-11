@@ -28,6 +28,13 @@ function init() {
       event.preventDefault();
     }
   });
+
+  // Event listener for the new button (Calculate Largest)
+  document.getElementById('calculate-largest').addEventListener('click', function(event) {
+    // Submit the form with the value 'largest'
+    document.getElementById('submit-type').value = 'largest';
+    document.getElementById('number-form').submit();
+  });
 }
 
 function setTheme(theme) {
