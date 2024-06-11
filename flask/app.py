@@ -48,6 +48,9 @@ def calculate():
         elif submit_type == 'largest':
             result = max(numbers)
             result_type = 'largest'
+        elif submit_type == 'sum':
+            result = sum_of_digits(numbers)
+            result_type = 'sum'
         else:
             result = None
             result_type = None
@@ -56,6 +59,12 @@ def calculate():
         return render_template("result.html", result=result, result_type=result_type)
     except ValueError:
         return "Invalid input. Please enter valid integers.", 400
+
+def sum_of_digits(numbers):
+    total = 0
+    for num in numbers:
+        total += sum(int(digit) for digit in str(abs(num)))
+    return total
     
 if __name__ == "__main__":
     app.run(debug=True, port=8080)

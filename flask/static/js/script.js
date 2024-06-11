@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-    // Theme initialization
+    // Theme initialization code
     let savedTheme = localStorage.getItem('selected-theme') || 'theme1';
     setTheme(savedTheme);
 
@@ -13,7 +13,7 @@ function init() {
         localStorage.setItem('selected-theme', selectedTheme);
     });
 
-    // Form validation
+    // Form validation code
     document.getElementById('number-form').addEventListener('submit', function(event) {
         let valid = true;
         for (let i = 1; i <= 5; i++) {
@@ -29,10 +29,10 @@ function init() {
         }
     });
 
-    // Event listener for the new button (Calculate Largest)
-    document.getElementById('calculate-largest').addEventListener('click', function(event) {
-        // Call the setSubmitType function with the parameter 'largest'
-        setSubmitType('largest');
+    // Event listener for the new button (Calculate Sum of Digits)
+    document.getElementById('calculate-sum').addEventListener('click', function(event) {
+        // Call the setSubmitType function with the parameter 'sum'
+        setSubmitType('sum');
     });
 }
 

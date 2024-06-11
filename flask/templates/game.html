@@ -7,18 +7,19 @@
 {% block bodycontent %}
 <h1>Enter 5 integers</h1>
 <form id="number-form" action="{{ url_for('calculate') }}" method="post">
-    <label for="num1">Number 1:</label>
-    <input type="text" id="num1" name="num1"><br><br>
-    <label for="num2">Number 2:</label>
-    <input type="text" id="num2" name="num2"><br><br>
-    <label for="num3">Number 3:</label>
-    <input type="text" id="num3" name="num3"><br><br>
-    <label for="num4">Number 4:</label>
-    <input type="text" id="num4" name="num4"><br><br>
-    <label for="num5">Number 5:</label>
-    <input type="text" id="num5" name="num5"><br><br>
+    <!-- Input fields for numbers -->
+    <input type="text" id="num1" name="num1" placeholder="Number 1" required><br><br>
+    <input type="text" id="num2" name="num2" placeholder="Number 2" required><br><br>
+    <input type="text" id="num3" name="num3" placeholder="Number 3" required><br><br>
+    <input type="text" id="num4" name="num4" placeholder="Number 4" required><br><br>
+    <input type="text" id="num5" name="num5" placeholder="Number 5" required><br><br>
+
+    <!-- Hidden input field for submit-type -->
     <input type="hidden" name="submit-type" id="submit-type" value="">
-    <button type="button" onclick="setSubmitType('smallest')">Smallest</button>
-    <button type="button" onclick="setSubmitType('largest')">Largest</button>
+
+    <!-- Submit buttons for different calculations -->
+    <button type="button" onclick="setSubmitType('smallest')">Calculate Smallest</button>
+    <button type="button" onclick="setSubmitType('largest')">Calculate Largest</button>
+    <button type="button" onclick="setSubmitType('sum')">Calculate Sum of Digits</button>
 </form>
 {% endblock %}
