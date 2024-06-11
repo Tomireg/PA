@@ -1,4 +1,5 @@
 body {
+    height: 100vh;
     background-color: #f0f0f0;
     color: #333;
     font-family: Arial, sans-serif;
@@ -14,6 +15,15 @@ body {
     flex-wrap: wrap;
 }
 
+.nav-container {
+    list-style-type: none;
+}
+
+.nav-item {
+    padding: 10px;
+    border: 5px solid black;
+}
+
 .nav-item a {
     color: white;
     text-decoration: none;
@@ -22,11 +32,14 @@ body {
 
 .nav-item select {
     padding: 10px;
-    border-radius: 5px;
+    border: 5px solid black;
 }
 
 .logo img {
-    max-width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 .footer-container {
@@ -37,8 +50,14 @@ body {
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 4em;
     color: #004680;
+    text-align: center;
+}
+
+p {
+    font-size: 2em;
+    color: slategrey;
     text-align: center;
 }
 
@@ -46,5 +65,17 @@ h1 {
     #main-nav {
         flex-direction: column;
         align-items: center;
+    }
+
+    h1 {
+        font-size: 2em;
+        color: #004680;
+        text-align: center;
+    }
+    
+    p {
+        font-size: 1em;
+        color: slategrey;
+        text-align: center;
     }
 }
