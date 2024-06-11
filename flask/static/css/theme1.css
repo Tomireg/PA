@@ -42,6 +42,7 @@ body {
     padding: 10px 10px;
     border: 5px solid black;
 }
+
 .nav-item select {
     padding: 10px;
     border: 5px solid black;
@@ -99,10 +100,10 @@ p {
         color: #004680;
         text-align: center;
     }
-    
+
     p {
         font-size: 1em;
         color: slategrey;
         text-align: center;
     }
-}    
+}
