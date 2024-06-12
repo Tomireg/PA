@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, url_for
 import numpy as np
 import os
 import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
 import logging
 
 # Configure logging
@@ -12,7 +13,9 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    # Generate the welcome animation and get the path
+    welcome_animation_path = generate_welcome_animation()
+    return render_template("home.html", welcome_animation_path=welcome_animation_path)
 
 @app.route("/projects")
 def projects():
@@ -96,5 +99,35 @@ def generate_plot(numbers):
     
     return 'plot.png'
 
+def generate_welcome_animation():
+    fig, ax = plt.subplots(figsize=(4, 2))  # Adjust figure size
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    ax.axis('off')  # Turn off axes
+
+    text = ax.text(0.5, 0.5, "", fontsize=30, ha='center')
+
+    def update(frame):
+        if frame < 100:
+            alpha = frame / 100
+            text.set_text("Welcome")
+            text.set_alpha(alpha)
+        else:
+            text.set_text("Welcome")
+            text.set_alpha(1)
+        return text,
+
+    anim = FuncAnimation(fig, update, frames=200, interval=30)
+    
+    # Ensure the static directory exists
+    static_dir = os.path.join(app.root_path, 'static')
+    if not os.path.exists(static_dir):
+        os.makedirs(static_dir)
+
+    # Save the animation as GIF
+    gif_path = os.path.join(static_dir, 'welcome_animation.gif')
+    anim.save(gif_path, writer='pillow')
+
+    return 'welcome_animation.gif'
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
