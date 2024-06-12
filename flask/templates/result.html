@@ -5,5 +5,18 @@
 {% endblock %}
 
 {% block bodycontent %}
-<h1>The {{ result_type }} number is: {{ result }}</h1>
+<h1>Calculation Result</h1>
+{% if result_type == 'smallest' %}
+    <p>The smallest number is: {{ result }}</p>
+{% elif result_type == 'largest' %}
+    <p>The largest number is: {{ result }}</p>
+{% elif result_type == 'sum' %}
+    <p>The sum of the digits is: {{ result }}</p>
+{% elif result_type == 'ordered' %}
+    <p>The ordered numbers are: {{ result }}</p>
+    <h2>Ordered Numbers Graph</h2>
+    <img src="{{ url_for('static', filename=plot_path) }}" alt="Ordered Numbers">
+{% else %}
+    <p>Invalid calculation type.</p>
+{% endif %}
 {% endblock %}

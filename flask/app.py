@@ -1,5 +1,11 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 import numpy as np
+import os
+import matplotlib.pyplot as plt
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
@@ -31,44 +37,64 @@ def game():
 @app.route("/calculate", methods=['POST'])
 def calculate():
     try:
-        numbers = [
-            int(request.form['num1']),
-            int(request.form['num2']),
-            int(request.form['num3']),
-            int(request.form['num4']),
-            int(request.form['num5'])
-        ]
-
-        # Check which button was clicked
+        numbers = np.array([int(request.form[f'num{i}']) for i in range(1, 6)])
         submit_type = request.form['submit-type']
 
         if submit_type == 'smallest':
-            result = min(numbers)
+            result = np.min(numbers)
             result_type = 'smallest'
         elif submit_type == 'largest':
-            result = max(numbers)
+            result = np.max(numbers)
             result_type = 'largest'
         elif submit_type == 'sum':
             result = sum_of_digits(numbers)
             result_type = 'sum'
         elif submit_type == 'order':
-            numbers.sort()
-            result = numbers
+            result = np.sort(numbers).tolist()  # Converting the sorted array back to a list
             result_type = 'ordered'
+            plot_path = generate_plot(result)
         else:
             result = None
             result_type = None
 
-        # Render the result page with the result and result_type
-        return render_template("result.html", result=result, result_type=result_type)
+        return render_template("result.html", result=result, result_type=result_type, plot_path=plot_path if submit_type == 'order' else None)
     except ValueError:
-        return "Invalid input. Please enter valid integers.", 400
+        return render_template("error.html", message="Invalid input. Please enter valid integers.")
 
 def sum_of_digits(numbers):
-    total = 0
-    for num in numbers:
-        total += sum(int(digit) for digit in str(abs(num)))
+    total = np.sum([np.sum([int(digit) for digit in str(abs(num))]) for num in numbers])
     return total
+
+def generate_plot(numbers):
+    # Ensure the static directory exists
+    static_dir = os.path.join(app.root_path, 'static')
+    if not os.path.exists(static_dir):
+        logging.debug(f"Creating directory: {static_dir}")
+        os.makedirs(static_dir)
+
+    plt.figure()
+
+    # Plot the line with axes
+    plt.plot(numbers, marker='o', linestyle='-', color='b')
+    plt.xlabel('Index')
+    plt.ylabel('Value')
+    plt.title('Ordered Numbers')
     
+    # Annotate each point with its value
+    for i, num in enumerate(numbers):
+        plt.text(i, num, str(num), ha='center', va='bottom')
+
+    plot_path = os.path.join(static_dir, 'plot.png')
+    logging.debug(f"Saving plot to: {plot_path}")
+    plt.savefig(plot_path)
+    plt.close()
+    
+    if not os.path.exists(plot_path):
+        logging.error(f"Failed to save plot to: {plot_path}")
+    else:
+        logging.debug(f"Plot successfully saved to: {plot_path}")
+    
+    return 'plot.png'
+
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
