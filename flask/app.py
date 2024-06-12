@@ -100,12 +100,12 @@ def generate_plot(numbers):
     return 'plot.png'
 
 def generate_welcome_animation():
-    fig, ax = plt.subplots(figsize=(4, 2))  # Adjust figure size
+    fig, ax = plt.subplots(figsize=(3, 1))  # Adjust figure size
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
     ax.axis('off')  # Turn off axes
 
-    text = ax.text(0.5, 0.5, "", fontsize=30, ha='center')
+    text = ax.text(0.5, 0.5, "", fontsize=30, ha='center', color='black')  # Set text color to black
 
     def update(frame):
         if frame < 100:
@@ -124,10 +124,11 @@ def generate_welcome_animation():
     if not os.path.exists(static_dir):
         os.makedirs(static_dir)
 
-    # Save the animation as GIF
+    # Save the animation as GIF with a transparent background
     gif_path = os.path.join(static_dir, 'welcome_animation.gif')
-    anim.save(gif_path, writer='pillow')
+    anim.save(gif_path, writer='pillow', fps=30, dpi=100, savefig_kwargs={'facecolor': 'none'})  # Transparent background
 
     return 'welcome_animation.gif'
+
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
