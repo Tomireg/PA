@@ -15,7 +15,7 @@
 {% elif result_type == 'ordered' %}
     <p>The ordered numbers are: {{ result }}</p>
     <h2>Ordered Numbers Graph</h2>
-    <img src="{{ url_for('static', filename=plot_path) }}" alt="Ordered Numbers">
+    <img class="image" src="{{ url_for('static', filename=plot_path) }}" alt="Ordered Numbers">
 {% else %}
     <p>Invalid calculation type.</p>
 {% endif %}

@@ -97,6 +97,21 @@ p {
     text-align: center;
 }
 
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 3em;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+}
+
 @media (max-width: 800px) {
     #main-nav {
         font-family: Georgia, 'Times New Roman', Times, serif;
