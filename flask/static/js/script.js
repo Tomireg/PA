@@ -11,7 +11,6 @@ function init() {
         let selectedTheme = themePicker.value;
         setTheme(selectedTheme);
         localStorage.setItem('selected-theme', selectedTheme);
-        updateAnimation(selectedTheme);
     });
 
     // Form validation code
@@ -35,22 +34,11 @@ function init() {
         // Call the setSubmitType function with the parameter 'order'
         setSubmitType('order');
     });
-
-    updateAnimation(savedTheme);
 }
 
 function setTheme(theme) {
     let themeStylesheet = document.getElementById("theme-stylesheet");
     themeStylesheet.href = `/static/css/${theme}.css`;
-}
-
-function updateAnimation(theme) {
-    fetch(`/generate_animation/${theme}`)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('welcome-animation').src = data.url;
-        })
-        .catch(error => console.error('Error:', error));
 }
 
 function setSubmitType(type) {

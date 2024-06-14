@@ -10,12 +10,11 @@ logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
-@app.route('/')
-@app.route('/home')
+@app.route("/")
+@app.route("/home")
 def home():
-    theme = request.args.get('theme', 'theme1')  # Get theme from query parameter
-    bg_color = get_theme_background_color(theme)
-    welcome_animation_path = generate_welcome_animation(bg_color)
+    # Generate the welcome animation and get the path
+    welcome_animation_path = generate_welcome_animation()
     return render_template("home.html", welcome_animation_path=welcome_animation_path)
 
 @app.route("/projects")
@@ -100,13 +99,13 @@ def generate_plot(numbers):
     
     return 'plot.png'
 
-def generate_welcome_animation(bg_color):
-    fig, ax = plt.subplots(figsize=(3, 1))  # Adjust figure size
+def generate_welcome_animation():
+    fig, ax = plt.subplots(figsize=(4, 2))  # Adjust figure size
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
     ax.axis('off')  # Turn off axes
 
-    text = ax.text(0.5, 0.5, "", fontsize=30, ha='center', color='black')  # Set text color to black
+    text = ax.text(0.5, 0.5, "", fontsize=30, ha='center')
 
     def update(frame):
         if frame < 100:
@@ -125,27 +124,10 @@ def generate_welcome_animation(bg_color):
     if not os.path.exists(static_dir):
         os.makedirs(static_dir)
 
-    # Save the animation as GIF with the provided background color
+    # Save the animation as GIF
     gif_path = os.path.join(static_dir, 'welcome_animation.gif')
-    anim.save(gif_path, writer='pillow', fps=30, dpi=100, savefig_kwargs={'facecolor': bg_color})  # Use provided background color
+    anim.save(gif_path, writer='pillow')
 
     return 'welcome_animation.gif'
-
-@app.route('/generate_animation/<theme>')
-def generate_animation(theme):
-    bg_color = get_theme_background_color(theme)
-    gif_path = generate_welcome_animation(bg_color)
-    return {'url': url_for('static', filename=gif_path)}
-
-def get_theme_background_color(theme):
-    if theme == 'theme1':
-        return '#f0f0f0'
-    elif theme == 'theme2':
-        return '#1a1a1a'
-    elif theme == 'theme3':
-        return '#fff4e6'
-    else:
-        return 'white'  # Default to white if theme is not recognized
-
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
