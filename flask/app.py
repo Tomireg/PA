@@ -39,6 +39,7 @@ def game():
 
 @app.route("/calculate", methods=['POST'])
 def calculate():
+    plot_path = None  # Initialize plot_path
     try:
         numbers = np.array([int(request.form[f'num{i}']) for i in range(1, 6)])
         submit_type = request.form['submit-type']
@@ -75,22 +76,22 @@ def generate_plot(numbers):
         logging.debug(f"Creating directory: {static_dir}")
         os.makedirs(static_dir)
 
-    plt.figure()
+    fig, ax = plt.subplots()  # Create a new figure
 
     # Plot the line with axes
-    plt.plot(numbers, marker='o', linestyle='-', color='b')
-    plt.xlabel('Index')
-    plt.ylabel('Value')
-    plt.title('Ordered Numbers')
+    ax.plot(numbers, marker='o', linestyle='-', color='b')
+    ax.set_xlabel('Index')
+    ax.set_ylabel('Value')
+    ax.set_title('Ordered Numbers')
     
     # Annotate each point with its value
     for i, num in enumerate(numbers):
-        plt.text(i, num, str(num), ha='center', va='bottom')
+        ax.text(i, num, str(num), ha='center', va='bottom')
 
     plot_path = os.path.join(static_dir, 'plot.png')
     logging.debug(f"Saving plot to: {plot_path}")
-    plt.savefig(plot_path)
-    plt.close()
+    fig.savefig(plot_path)
+    plt.close(fig)  # Close the figure to free up memory
     
     if not os.path.exists(plot_path):
         logging.error(f"Failed to save plot to: {plot_path}")
@@ -127,7 +128,9 @@ def generate_welcome_animation():
     # Save the animation as GIF
     gif_path = os.path.join(static_dir, 'welcome_animation.gif')
     anim.save(gif_path, writer='pillow')
+    plt.close(fig)  # Close the figure to free up memory
 
     return 'welcome_animation.gif'
+
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
