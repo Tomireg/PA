@@ -28,12 +28,6 @@ function init() {
             event.preventDefault();
         }
     });
-
-    // Event listener for the new button (Order Numbers)
-    document.getElementById('order-numbers').addEventListener('click', function(event) {
-        // Call the setSubmitType function with the parameter 'order'
-        setSubmitType('order');
-    });
 }
 
 function setTheme(theme) {
