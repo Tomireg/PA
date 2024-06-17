@@ -10,8 +10,40 @@ logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
-anim = None  # Define the animation object as a global variable
+def generate_welcome_animation():
+    fig, ax = plt.subplots(figsize=(4, 2))  # Adjust figure size
+    fig.patch.set_facecolor('cadetblue')  # Set the background color of the figure
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    ax.axis('off')  # Turn off axes
 
+    text = ax.text(0.5, 0.5, "", fontsize=30, ha='center')
+
+    def update(frame):
+        if frame < 100:
+            alpha = frame / 100
+            text.set_text("Welcome")
+            text.set_alpha(alpha)
+        else:
+            text.set_text("Welcome")
+            text.set_alpha(1)
+        return text,
+
+    anim = FuncAnimation(fig, update, frames=200, interval=30)
+    
+    # Ensure the static directory exists
+    static_dir = os.path.join(app.root_path, 'static')
+    if not os.path.exists(static_dir):
+        os.makedirs(static_dir)
+
+    # Save the animation as GIF
+    gif_path = os.path.join(static_dir, 'welcome_animation.gif')
+    if not os.path.exists(gif_path):  # Check if the file already exists
+        anim.save(gif_path, writer='pillow')
+
+    plt.close(fig)  # Close the figure to prevent display in non-interactive environments
+
+    return 'welcome_animation.gif'
 
 @app.route("/")
 @app.route("/home")
@@ -101,39 +133,6 @@ def generate_plot(numbers):
         logging.debug(f"Plot successfully saved to: {plot_path}")
     
     return 'plot.png'
-
-def generate_welcome_animation():
-    global anim  # Use the global animation object
-    fig, ax = plt.subplots(figsize=(4, 2))  # Adjust figure size
-    ax.set_xlim(0, 1)
-    ax.set_ylim(0, 1)
-    ax.axis('off')  # Turn off axes
-
-    text = ax.text(0.5, 0.5, "", fontsize=30, ha='center')
-
-    def update(frame):
-        if frame < 100:
-            alpha = frame / 100
-            text.set_text("Welcome")
-            text.set_alpha(alpha)
-        else:
-            text.set_text("Welcome")
-            text.set_alpha(1)
-        return text,
-
-    anim = FuncAnimation(fig, update, frames=200, interval=30)
-    
-    # Ensure the static directory exists
-    static_dir = os.path.join(app.root_path, 'static')
-    if not os.path.exists(static_dir):
-        os.makedirs(static_dir)
-
-    # Save the animation as GIF
-    gif_path = os.path.join(static_dir, 'welcome_animation.gif')
-    if not os.path.exists(gif_path):  # Check if the file already exists
-        anim.save(gif_path, writer='pillow')
-
-    return 'welcome_animation.gif'
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
