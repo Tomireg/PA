@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+
+{% block titlecontent %}
+<title>Error</title>
+{% endblock %}
+
+
+{% block bodycontent %}
+<h1>Error</h1>
+    <p>{{ message }}</p>
+    <a href="{{ url_for('home') }}">Go back to home</a>
+{% endblock %}

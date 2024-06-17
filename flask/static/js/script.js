@@ -6,44 +6,63 @@ function init() {
     setTheme(savedTheme);
 
     let themePicker = document.getElementById("theme-picker");
-    themePicker.value = savedTheme;
-    themePicker.addEventListener("change", function() {
-        let selectedTheme = themePicker.value;
-        setTheme(selectedTheme);
-        localStorage.setItem('selected-theme', selectedTheme);
-    });
+    if (themePicker) {
+        themePicker.value = savedTheme;
+        themePicker.addEventListener("change", function() {
+            let selectedTheme = themePicker.value;
+            setTheme(selectedTheme);
+            localStorage.setItem('selected-theme', selectedTheme);
+        });
+    }
 
-    // Form validation code
-    document.getElementById('number-form').addEventListener('submit', function(event) {
-        let valid = true;
-        for (let i = 1; i <= 5; i++) {
-            let num = document.getElementById('num' + i).value;
-            if (isNaN(num) || num.trim() === '') {
-                valid = false;
-                alert('Please enter valid integers in all fields.');
-                break;
+    // Form validation code for number form
+    let numberForm = document.getElementById('number-form');
+    if (numberForm) {
+        numberForm.addEventListener('submit', function(event) {
+            let valid = true;
+            for (let i = 1; i <= 5; i++) {
+                let num = document.getElementById('num' + i).value;
+                if (isNaN(num) || num.trim() === '') {
+                    valid = false;
+                    alert('Please enter valid integers in all fields.');
+                    break;
+                }
             }
-        }
-        if (!valid) {
-            event.preventDefault();
-        }
-    });
+            if (!valid) {
+                event.preventDefault();
+            }
+        });
+    }
 
-    // Event listener for the new button (Order Numbers)
-    document.getElementById('order-numbers').addEventListener('click', function(event) {
-        // Call the setSubmitType function with the parameter 'order'
-        setSubmitType('order');
-    });
+    // Form validation code for greet form
+    let greetForm = document.forms["greetForm"];
+    if (greetForm) {
+        greetForm.addEventListener("submit", function(event) {
+            const name = greetForm["name"].value;
+            if (name === "") {
+                alert("Name must be filled out");
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+    }
 }
 
 function setTheme(theme) {
     let themeStylesheet = document.getElementById("theme-stylesheet");
-    themeStylesheet.href = `/static/css/${theme}.css`;
+    if (themeStylesheet) {
+        themeStylesheet.href = `/static/css/${theme}.css`;
+    }
 }
 
 function setSubmitType(type) {
     // Set the value of the hidden input field 'submit-type' to the specified type
-    document.getElementById('submit-type').value = type;
-    // Submit the form
-    document.getElementById('number-form').submit();
+    let submitType = document.getElementById('submit-type');
+    if (submitType) {
+        submitType.value = type;
+        // Submit the form
+        let numberForm = document.getElementById('number-form');
+        if (numberForm) {
+            numberForm.submit();
+        }
+    }
 }

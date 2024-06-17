@@ -7,5 +7,11 @@
 
 {% block bodycontent %}
 <img class="image" src="{{ url_for('static', filename=welcome_animation_path) }}" alt="Welcome Animation">
+<h1>Let me greet you.</h1>
+<form name="greetForm" action="{{ url_for('greet') }}" method="post" onsubmit="return validateForm()">
+    <label for="name">Enter your name:</label>
+    <input type="text" id="name" name="name">
+    <input type="submit" value="Submit">
+</form>
 <p>This portfolio website shows my skills and works</p>
 {% endblock %}

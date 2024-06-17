@@ -4,6 +4,7 @@ import os
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import logging
+from datetime import datetime
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -52,6 +53,14 @@ def home():
     # Get the path to the cached welcome animation
     welcome_animation_path = generate_welcome_animation()
     return render_template("home.html", welcome_animation_path=welcome_animation_path)
+
+@app.route("/greet", methods=['POST'])
+def greet():
+    name = request.form['name']
+    if not name:
+        return render_template("error.html", message="Name cannot be empty.")
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    return render_template("greetings.html", name=name, current_time=current_time)
 
 @app.route("/projects")
 def projects():
