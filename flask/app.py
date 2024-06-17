@@ -10,11 +10,14 @@ logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
+anim = None  # Define the animation object as a global variable
+
+
 @app.route("/")
 @app.route("/home")
 def home():
-    # Get the path to the cached welcome animation and keep the reference to the animation object
-    welcome_animation_path, anim = generate_welcome_animation()
+    # Get the path to the cached welcome animation
+    welcome_animation_path = generate_welcome_animation()
     return render_template("home.html", welcome_animation_path=welcome_animation_path)
 
 @app.route("/projects")
@@ -100,6 +103,7 @@ def generate_plot(numbers):
     return 'plot.png'
 
 def generate_welcome_animation():
+    global anim  # Use the global animation object
     fig, ax = plt.subplots(figsize=(4, 2))  # Adjust figure size
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
@@ -129,8 +133,7 @@ def generate_welcome_animation():
     if not os.path.exists(gif_path):  # Check if the file already exists
         anim.save(gif_path, writer='pillow')
 
-    # Keep a reference to the animation object to prevent it from being garbage collected
-    return 'welcome_animation.gif', anim
+    return 'welcome_animation.gif'
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
