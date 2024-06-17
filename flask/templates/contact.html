@@ -5,19 +5,7 @@
 {% endblock %}
 
 {% block bodycontent %}
-{% with messages = get_flashed_messages() %} {% if messages %}
-    <div>
-      <h5>{{ messages[-1] }}</h5>
-    </div>
-    {% endif %} {% endwith %}
-    <h1>Contact Us</h1>
-    <form id="contact-form" method="POST">
-      <label for="name">Name:</label><br />
-      <input type="text" id="name" name="name" required /><br />
-      <label for="email">Email:</label><br />
-      <input type="email" id="email" name="email" required /><br />
-      <label for="message">Message:</label><br />
-      <textarea id="message" name="message" required></textarea><br />
-      <input type="submit" value="Submit" />
-    </form>
+<h1>Contact Me</h1>
+<p><a class="link" href="mailto: tomregeczy@gmail.com"> Click to Send Mail</a></p>
+
 {% endblock %}

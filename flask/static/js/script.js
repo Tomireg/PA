@@ -29,23 +29,10 @@ function init() {
         }
     });
 
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        // Validate the contact form
-        let name = document.getElementById('name').value.trim();
-        let email = document.getElementById('email').value.trim();
-        let message = document.getElementById('message').value.trim();
-
-        if (name === '' || email === '' || message === '') {
-            alert('Please fill in all fields.');
-            event.preventDefault();
-            return;
-        }
-
-        if (!validateEmail(email)) {
-            alert('Please enter a valid email address.');
-            event.preventDefault();
-            return;
-        }
+    // Event listener for the new button (Order Numbers)
+    document.getElementById('order-numbers').addEventListener('click', function(event) {
+        // Call the setSubmitType function with the parameter 'order'
+        setSubmitType('order');
     });
 }
 
@@ -59,9 +46,4 @@ function setSubmitType(type) {
     document.getElementById('submit-type').value = type;
     // Submit the form
     document.getElementById('number-form').submit();
-}
-
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
 }
