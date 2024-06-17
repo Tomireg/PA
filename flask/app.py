@@ -6,18 +6,20 @@ from matplotlib.animation import FuncAnimation
 import logging
 from datetime import datetime
 
-# Configure logging
 logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
-# used this code to generate the animation but I had to comment it because render.com didn't like it and was giving constant errors and warning. I saved the animation and I am still using it and I left in the code commented out to show how I generated the animation.
+Fruits =["Apple", "Pear", "Grape", "Strawberry",  
+           "Raspberry", "Blackcurrant", "Blueberry", "Watermelon", "Banana", "Mango"] 
+
+
 def generate_welcome_animation():
-    fig, ax = plt.subplots(figsize=(4, 2))  # Adjust figure size
-    fig.patch.set_facecolor('cadetblue')  # Set the background color of the figure
+    fig, ax = plt.subplots(figsize=(4, 2))  
+    fig.patch.set_facecolor('cadetblue')  
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
-    ax.axis('off')  # Turn off axes
+    ax.axis('off')  
 
     text = ax.text(0.5, 0.5, "", fontsize=30, ha='center')
 
@@ -33,24 +35,21 @@ def generate_welcome_animation():
 
     anim = FuncAnimation(fig, update, frames=200, interval=30)
     
-    # Ensure the static directory exists
     static_dir = os.path.join(app.root_path, 'static')
     if not os.path.exists(static_dir):
         os.makedirs(static_dir)
 
-    # Save the animation as GIF
     gif_path = os.path.join(static_dir, 'welcome_animation.gif')
-    if not os.path.exists(gif_path):  # Check if the file already exists
+    if not os.path.exists(gif_path):  
         anim.save(gif_path, writer='pillow')
 
-    plt.close(fig)  # Close the figure to prevent display in non-interactive environments
+    plt.close(fig)
 
     return 'welcome_animation.gif'
 
 @app.route("/")
 @app.route("/home")
 def home():
-    # Get the path to the cached welcome animation
     welcome_animation_path = generate_welcome_animation()
     return render_template("home.html", welcome_animation_path=welcome_animation_path)
 
@@ -80,7 +79,7 @@ def contact():
 
 @app.route("/game")
 def game():
-    return render_template("game.html")
+    return render_template("game.html", len = len(Fruits), Fruits = Fruits)
 
 @app.route("/calculate", methods=['POST'])
 def calculate():
@@ -98,7 +97,7 @@ def calculate():
             result = sum_of_digits(numbers)
             result_type = 'sum'
         elif submit_type == 'order':
-            result = np.sort(numbers).tolist()  # Converting the sorted array back to a list
+            result = np.sort(numbers).tolist()  
             result_type = 'ordered'
             plot_path = generate_plot(result)
         else:
@@ -114,7 +113,6 @@ def sum_of_digits(numbers):
     return total
 
 def generate_plot(numbers):
-    # Ensure the static directory exists
     static_dir = os.path.join(app.root_path, 'static')
     if not os.path.exists(static_dir):
         logging.debug(f"Creating directory: {static_dir}")
@@ -122,13 +120,11 @@ def generate_plot(numbers):
 
     plt.figure()
 
-    # Plot the line with axes
     plt.plot(numbers, marker='o', linestyle='-', color='b')
     plt.xlabel('Index')
     plt.ylabel('Value')
     plt.title('Ordered Numbers')
     
-    # Annotate each point with its value
     for i, num in enumerate(numbers):
         plt.text(i, num, str(num), ha='center', va='bottom')
 

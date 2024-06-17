@@ -7,20 +7,37 @@
 {% block bodycontent %}
 <h1>Enter 5 integers</h1>
 <form id="number-form" action="{{ url_for('calculate') }}" method="post">
-    <!-- Input fields for numbers -->
     <input type="text" id="num1" name="num1" placeholder="Number 1" required><br><br>
     <input type="text" id="num2" name="num2" placeholder="Number 2" required><br><br>
     <input type="text" id="num3" name="num3" placeholder="Number 3" required><br><br>
     <input type="text" id="num4" name="num4" placeholder="Number 4" required><br><br>
     <input type="text" id="num5" name="num5" placeholder="Number 5" required><br><br>
 
-    <!-- Hidden input field for submit-type -->
     <input type="hidden" name="submit-type" id="submit-type" value="">
 
-    <!-- Submit buttons for different calculations -->
     <button type="button" onclick="setSubmitType('smallest')">Calculate Smallest</button>
     <button type="button" onclick="setSubmitType('largest')">Calculate Largest</button>
     <button type="button" onclick="setSubmitType('sum')">Calculate Sum of Digits</button>
     <button type="button" onclick="setSubmitType('order')">Order Numbers</button>
 </form>
+<h2>This is a list printed into a table using python for loop</h2>
+<table>
+    <th>
+        <tr>
+            <td>Serial Number</td>
+            <td>Fruit</td>
+        </tr>
+    </th>
+
+    {%for i in range(0, len)%}
+
+    <tr>
+        <td>{{i}}</td>
+        <td>{{Fruits[i]}}</td>
+
+        {%endfor%}
+
+    </tr>
+
+</table>
 {% endblock %}
