@@ -13,8 +13,8 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/home")
 def home():
-    # Get the path to the cached welcome animation
-    welcome_animation_path = generate_welcome_animation()
+    # Get the path to the cached welcome animation and keep the reference to the animation object
+    welcome_animation_path, anim = generate_welcome_animation()
     return render_template("home.html", welcome_animation_path=welcome_animation_path)
 
 @app.route("/projects")
@@ -129,7 +129,8 @@ def generate_welcome_animation():
     if not os.path.exists(gif_path):  # Check if the file already exists
         anim.save(gif_path, writer='pillow')
 
-    return 'welcome_animation.gif'
+    # Keep a reference to the animation object to prevent it from being garbage collected
+    return 'welcome_animation.gif', anim
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
