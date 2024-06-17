@@ -10,6 +10,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
+# used this code to generate the animation but I had to comment it because render.com didn't like it and was giving constant errors and warning. I saved the animation and I am still using it and I left in the code commented out to show how I generated the animation.
 def generate_welcome_animation():
     fig, ax = plt.subplots(figsize=(4, 2))  # Adjust figure size
     fig.patch.set_facecolor('cadetblue')  # Set the background color of the figure
