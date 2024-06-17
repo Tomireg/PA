@@ -114,8 +114,8 @@ h2 {
 }
 
 .table {
-    background-color: cadetblue;
-    color: chocolate;
+    background-color: slategrey;
+    color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 2em;
     margin-left: auto;
@@ -124,7 +124,7 @@ h2 {
 
 .table th,
 .table td {
-    border: 1px solid black;
+    border: 1px solid whitesmoke;
     padding: 10px;
     text-align: center;
 }
@@ -143,7 +143,7 @@ h2 {
     padding: 10px;
     margin-bottom: 10px;
     font-size: 2em;
-    border: 1px solid cadetblue;
+    border: 1px solid whitesmoke;
     border-radius: 4px;
 }
 

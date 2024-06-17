@@ -20,9 +20,7 @@ body {
 
 .nav-item {
     display: inline-block;
-    background-color: slategrey;
     padding: 10px;
-    border: 5px solid black;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -30,6 +28,8 @@ body {
 .nav-item a {
     font-size: 1em;
     color: white;
+    background-color: slategrey;
+    border: 2px solid black;
     text-decoration: none;
     padding: 10px 20px;
 }
@@ -40,12 +40,12 @@ body {
     color: slategrey;
     text-decoration: none;
     padding: 10px 10px;
-    border: 5px solid black;
+    border: 2px solid black;
 }
 
 .nav-item select {
     padding: 10px;
-    border: 5px
+    border-radius: 5px;
 }
 
 ul {
@@ -102,8 +102,8 @@ h2 {
 }
 
 .table {
-    background-color: cadetblue;
-    color: chocolate;
+    background-color: #004680;
+    color: slategrey;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 2em;
     margin-left: auto;
@@ -125,13 +125,13 @@ h2 {
     text-align: center;
 }
 
-.form input[type="text"], 
+.form input[type="text"],
 .form input[type="number"] {
     width: 50%;
     padding: 10px;
     margin-bottom: 10px;
     font-size: 2em;
-    border: 1px solid cadetblue;
+    border: 1px solid #004680;
     border-radius: 4px;
 }
 
