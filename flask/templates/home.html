@@ -10,8 +10,7 @@
 <h1>Let me greet you.</h1>
 <div class="form-container">
     <form class="form" name="greetForm" action="{{ url_for('greet') }}" method="post" onsubmit="return validateForm()">
-        <label for="name">Enter your name:</label>
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>><br><br>
         <input type="submit" value="Submit">
     </form>
 </div>
