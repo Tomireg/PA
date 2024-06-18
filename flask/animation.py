@@ -2,7 +2,7 @@ import os
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from flask import url_for
-
+# Function to generate the welcome animation
 def generate_welcome_animation(app_root_path):
     fig, ax = plt.subplots(figsize=(4, 2))  
     fig.patch.set_facecolor('cadetblue')  

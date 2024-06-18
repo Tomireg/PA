@@ -2,7 +2,7 @@ import os
 import matplotlib.pyplot as plt
 from flask import url_for
 import logging
-
+# function to generate the graph when the user clicks on the order numberes button
 def generate_plot(app_root_path, numbers):
     graph_dir = os.path.join(app_root_path, 'static', 'assets', 'graph')
     if not os.path.exists(graph_dir):

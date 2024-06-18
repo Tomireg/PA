@@ -9,10 +9,11 @@ logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
+# This list is printed on a page using a for loop
 Fruits = ["Apple", "Pear", "Grape", "Strawberry",  
           "Raspberry", "Blackcurrant", "Blueberry", "Watermelon", "Banana", "Mango"] 
 
-
+# Routes
 @app.route("/")
 @app.route("/home")
 def home():
@@ -52,7 +53,7 @@ def calculate():
     try:
         numbers = np.array([int(request.form[f'num{i}']) for i in range(1, 6)])
         submit_type = request.form['submit-type']
-
+# this code chooses what to do according to which submit button was clicked
         plot_path = None
         if submit_type == 'smallest':
             result = np.min(numbers)
@@ -74,7 +75,7 @@ def calculate():
         return render_template("result.html", result=result, result_type=result_type, plot_path=plot_path if submit_type == 'order' else None)
     except ValueError:
         return render_template("error.html", message="Invalid input. Please enter valid integers.")
-
+# This function calculates the sum of the digits of the integers
 def sum_of_digits(numbers):
     total = np.sum([np.sum([int(digit) for digit in str(abs(num))]) for num in numbers])
     return total
