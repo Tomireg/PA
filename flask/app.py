@@ -10,8 +10,8 @@ logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
-Fruits =["Apple", "Pear", "Grape", "Strawberry",  
-           "Raspberry", "Blackcurrant", "Blueberry", "Watermelon", "Banana", "Mango"] 
+Fruits = ["Apple", "Pear", "Grape", "Strawberry",  
+          "Raspberry", "Blackcurrant", "Blueberry", "Watermelon", "Banana", "Mango"] 
 
 
 def generate_welcome_animation():
@@ -35,17 +35,17 @@ def generate_welcome_animation():
 
     anim = FuncAnimation(fig, update, frames=200, interval=30)
     
-    static_dir = os.path.join(app.root_path, 'static')
-    if not os.path.exists(static_dir):
-        os.makedirs(static_dir)
+    animation_dir = os.path.join(app.root_path, 'static', 'assets', 'animation')
+    if not os.path.exists(animation_dir):
+        os.makedirs(animation_dir)
 
-    gif_path = os.path.join(static_dir, 'welcome_animation.gif')
+    gif_path = os.path.join(animation_dir, 'welcome_animation.gif')
     if not os.path.exists(gif_path):  
         anim.save(gif_path, writer='pillow')
 
     plt.close(fig)
 
-    return 'welcome_animation.gif'
+    return url_for('static', filename='assets/animation/welcome_animation.gif')
 
 @app.route("/")
 @app.route("/home")
@@ -79,7 +79,7 @@ def contact():
 
 @app.route("/game")
 def game():
-    return render_template("game.html", len = len(Fruits), Fruits = Fruits)
+    return render_template("game.html", len=len(Fruits), Fruits=Fruits)
 
 @app.route("/calculate", methods=['POST'])
 def calculate():
@@ -87,6 +87,7 @@ def calculate():
         numbers = np.array([int(request.form[f'num{i}']) for i in range(1, 6)])
         submit_type = request.form['submit-type']
 
+        plot_path = None
         if submit_type == 'smallest':
             result = np.min(numbers)
             result_type = 'smallest'
@@ -113,10 +114,10 @@ def sum_of_digits(numbers):
     return total
 
 def generate_plot(numbers):
-    static_dir = os.path.join(app.root_path, 'static')
-    if not os.path.exists(static_dir):
-        logging.debug(f"Creating directory: {static_dir}")
-        os.makedirs(static_dir)
+    graph_dir = os.path.join(app.root_path, 'static', 'assets', 'graph')
+    if not os.path.exists(graph_dir):
+        logging.debug(f"Creating directory: {graph_dir}")
+        os.makedirs(graph_dir)
 
     plt.figure()
 
@@ -128,7 +129,7 @@ def generate_plot(numbers):
     for i, num in enumerate(numbers):
         plt.text(i, num, str(num), ha='center', va='bottom')
 
-    plot_path = os.path.join(static_dir, 'plot.png')
+    plot_path = os.path.join(graph_dir, 'plot.png')
     logging.debug(f"Saving plot to: {plot_path}")
     plt.savefig(plot_path)
     plt.close()
@@ -138,7 +139,7 @@ def generate_plot(numbers):
     else:
         logging.debug(f"Plot successfully saved to: {plot_path}")
     
-    return 'plot.png'
+    return url_for('static', filename='assets/graph/plot.png')
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)

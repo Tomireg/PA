@@ -4,9 +4,8 @@
 <title>Home</title>
 {% endblock %}
 
-
 {% block bodycontent %}
-<img class="image" src="{{ url_for('static', filename=welcome_animation_path) }}" alt="Welcome Animation">
+<img class="image" src="{{ welcome_animation_path }}" alt="Welcome Animation">
 <h1>Let me greet you.</h1>
 <div class="form-container">
     <form class="form" name="greetForm" action="{{ url_for('greet') }}" method="post" onsubmit="return validateForm()">
